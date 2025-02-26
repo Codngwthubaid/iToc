@@ -11,35 +11,25 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { DollarSign , Home, Paintbrush } from "lucide-react"
 import Image from 'next/image'
 
 const items = [
     {
-        title: "Home",
-        url: "#",
+        title: "Dashboard",
+        url: "/dashboard",
         icon: Home,
     },
     {
-        title: "Inbox",
-        url: "#",
-        icon: Inbox,
+        title: "Designs",
+        url: "/designs",
+        icon: Paintbrush,
     },
     {
-        title: "Calendar",
-        url: "#",
-        icon: Calendar,
-    },
-    {
-        title: "Search",
-        url: "#",
-        icon: Search,
-    },
-    {
-        title: "Settings",
-        url: "#",
-        icon: Settings,
-    },
+        title: "Credits",
+        url: "/credits",
+        icon: DollarSign ,
+    }
 ]
 
 export function AppSidebar() {
@@ -60,8 +50,8 @@ export function AppSidebar() {
                             {items.map((item, index) => (
                                 // <SidebarMenuItem key={item.title} className='p-2'>
                                 //     <SidebarMenuButton asChild className=''>
-                                <a href={item.url} key={index} className='p-2 text-lg flex gap-2 items-center
-                                 hover:bg-gray-100 rounded-lg'>
+                                <a href={item.url} key={index} className={`p-2 text-lg flex gap-2 items-center
+                                 hover:bg-gray-100 rounded-lg ${window.location.pathname === item.url && 'bg-gray-200 dark:text-black'}`}>
                                     <item.icon className='h-5 w-5' />
                                     <span>{item.title}</span>
                                 </a>
